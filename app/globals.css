@@ -1,30 +1,936 @@
 :root {
   color-scheme: light;
-  font-family: Georgia, "Times New Roman", serif;
-  background: #f4f5ef;
-  color: #172f28;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  background: #f7f8fc;
+  color: #202b42;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
 }
 
 * {
   box-sizing: border-box;
 }
+
 body {
   margin: 0;
+  min-width: 320px;
   min-height: 100vh;
 }
-main {
-  max-width: 760px;
-  margin: 0 auto;
-  padding: 12vh 24px;
+
+button,
+input,
+textarea {
+  font: inherit;
 }
-h1 {
-  font-size: 48px;
+
+button {
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-shell {
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 68px;
+  padding: 0 34px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border-bottom: 1px solid #e8ebf2;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #1d2b4a;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -1.2px;
+}
+
+.brand-mark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #5368df;
+  color: #fff;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.topbar-divider,
+.toolbar-divider {
+  width: 1px;
+  height: 22px;
+  background: #e8ebf2;
+}
+
+.workspace-name {
+  color: #64708a;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.avatar,
+.assignee-avatar {
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #e5e9ff;
+  color: #4658bd;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+
+.workspace {
+  min-height: calc(100vh - 68px);
+  display: flex;
+}
+
+.sidebar {
+  width: 220px;
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px 18px;
+  background: #fff;
+  border-right: 1px solid #e8ebf2;
+}
+
+.sidebar-label {
+  padding: 0 12px;
+  margin-bottom: 13px;
+  color: #9aa3b5;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.15px;
+}
+
+.nav-item {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 12px;
+  margin-bottom: 4px;
+  border-radius: 7px;
+  color: #65708a;
+  font-size: 13px;
   font-weight: 500;
 }
+
+.nav-item.active {
+  background: #f0f2ff;
+  color: #4659c5;
+  font-weight: 700;
+}
+
+.nav-icon {
+  width: 17px;
+  text-align: center;
+  color: #8993a8;
+  font-size: 17px;
+}
+
+.active .nav-icon {
+  color: #5368df;
+}
+
+.board-icon {
+  font-size: 16px;
+}
+
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding: 13px 8px 0;
+  border-top: 1px solid #edf0f5;
+}
+
+.team-dot {
+  width: 29px;
+  height: 29px;
+  border-radius: 8px;
+  background: linear-gradient(140deg, #7776e7, #a5a9fa);
+}
+
+.team-name,
+.team-plan {
+  display: block;
+}
+
+.team-name {
+  color: #35405a;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.team-plan {
+  margin-top: 2px;
+  color: #8d97aa;
+  font-size: 10px;
+}
+
+.more-icon {
+  margin-left: auto;
+  color: #8d97aa;
+  letter-spacing: 2px;
+}
+
+.board-area {
+  min-width: 0;
+  flex: 1;
+  padding: 38px 42px 32px;
+  overflow: hidden;
+}
+
+.board-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-bottom: 28px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 12px;
+  color: #8a94a9;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.title-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1,
+h2,
+h3,
 p {
-  color: #50665e;
-  font:
-    16px / 1.6 ui-sans-serif,
-    system-ui,
-    sans-serif;
+  margin: 0;
+}
+
+h1 {
+  color: #1d2945;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.75px;
+  line-height: 1.3;
+}
+
+.visibility-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 8px;
+  border: 1px solid #e8ebf2;
+  border-radius: 5px;
+  color: #758099;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.visibility-pill span {
+  color: #8b96ab;
+  font-size: 7px;
+}
+
+.board-description {
+  margin-top: 7px;
+  color: #828da4;
+  font-size: 12px;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 14px;
+  border: 0;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 120ms ease,
+    transform 120ms ease;
+}
+
+.primary-button {
+  background: #5368df;
+  box-shadow: 0 3px 8px #5368df2b;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #455ad0;
+  transform: translateY(-1px);
+}
+
+.primary-button > span {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+.board-toolbar {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e9f0;
+}
+
+.view-tabs,
+.toolbar-actions {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.view-tabs {
+  gap: 20px;
+}
+
+.view-tab {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 2px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: #8993a8;
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.view-tab.selected {
+  border-bottom-color: #5368df;
+  color: #4658bd;
+}
+
+.toolbar-actions {
+  gap: 12px;
+}
+
+.issue-total {
+  color: #8993a8;
+  font-size: 11px;
+}
+
+.issue-total strong {
+  color: #4a5671;
+  font-weight: 700;
+}
+
+.toolbar-divider {
+  height: 17px;
+}
+
+.icon-button,
+.column-icon-button {
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: #8b95a9;
+  cursor: pointer;
+}
+
+.icon-button {
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  font-size: 17px;
+}
+
+.icon-button:hover,
+.column-icon-button:hover {
+  background: #eceffa;
+  color: #5368df;
+}
+
+.kanban-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(230px, 1fr));
+  align-items: start;
+  gap: 18px;
+  padding-top: 22px;
+}
+
+.kanban-column {
+  min-width: 0;
+  min-height: 260px;
+  padding: 14px;
+  border: 1px solid #e7eaf1;
+  border-radius: 10px;
+  background: #f2f4f9;
+  transition:
+    border-color 120ms ease,
+    background 120ms ease;
+}
+
+.kanban-column:has(.issue-card.dragging) {
+  border-color: #bbc4f8;
+}
+
+.column-heading,
+.column-title-wrap,
+.column-controls {
+  display: flex;
+  align-items: center;
+}
+
+.column-heading {
+  justify-content: space-between;
+}
+
+.column-title-wrap {
+  gap: 8px;
+}
+
+.column-title-wrap h2 {
+  color: #3a4660;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.blue {
+  background: #5b7ded;
+}
+
+.status-dot.violet {
+  background: #9474dc;
+}
+
+.status-dot.green {
+  background: #57b895;
+}
+
+.column-count {
+  min-width: 19px;
+  height: 19px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  background: #e8ebf3;
+  color: #778198;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.column-controls {
+  gap: 1px;
+}
+
+.column-icon-button {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.column-icon-button:last-child {
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.column-subtitle {
+  margin: 4px 0 14px 16px;
+  color: #969fb0;
+  font-size: 10px;
+}
+
+.issue-list {
+  min-height: 60px;
+}
+
+.issue-card {
+  margin-bottom: 10px;
+  padding: 13px 13px 11px;
+  border: 1px solid #e9ebf1;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 5px #26375a0a;
+  cursor: grab;
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease,
+    opacity 120ms ease;
+}
+
+.issue-card:hover {
+  border-color: #dce1ed;
+  box-shadow: 0 5px 14px #26375a10;
+  transform: translateY(-1px);
+}
+
+.issue-card:active {
+  cursor: grabbing;
+}
+
+.issue-card.dragging {
+  opacity: 0.48;
+}
+
+.card-topline,
+.card-footer,
+.card-meta {
+  display: flex;
+  align-items: center;
+}
+
+.card-topline {
+  justify-content: space-between;
+  margin-bottom: 9px;
+}
+
+.issue-id {
+  color: #939db0;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.card-menu {
+  width: 19px;
+  height: 19px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #b0b7c5;
+  font-size: 16px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.issue-card:hover .card-menu,
+.card-menu:focus-visible {
+  opacity: 1;
+}
+
+.card-menu:hover {
+  background: #fff0f0;
+  color: #d45e68;
+}
+
+.issue-card h3 {
+  color: #34405a;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.issue-description {
+  margin-top: 5px;
+  color: #8993a6;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.card-footer {
+  justify-content: space-between;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f1f5;
+}
+
+.priority-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.priority-pill span {
+  font-size: 7px;
+}
+
+.priority-high {
+  background: #fff0ef;
+  color: #df706c;
+}
+
+.priority-medium {
+  background: #fff7e7;
+  color: #c99131;
+}
+
+.priority-low {
+  background: #eef7f1;
+  color: #60a780;
+}
+
+.card-meta {
+  gap: 7px;
+}
+
+.status-select {
+  max-width: 91px;
+  padding: 3px 4px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #8b95a9;
+  font-size: 9px;
+  cursor: pointer;
+}
+
+.status-select:hover,
+.status-select:focus-visible {
+  background: #f1f3f8;
+}
+
+.assignee-avatar {
+  width: 22px;
+  height: 22px;
+  font-size: 9px;
+}
+
+.empty-column {
+  padding: 19px 8px;
+  color: #9aa3b4;
+  font-size: 10px;
+  text-align: center;
+}
+
+.add-issue-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 5px 3px;
+  border: 0;
+  background: transparent;
+  color: #8c96aa;
+  font-size: 10px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+}
+
+.add-issue-button:hover {
+  color: #5368df;
+}
+
+.add-issue-button span {
+  font-size: 15px;
+}
+
+.drag-hint {
+  margin-top: 18px;
+  color: #a0a8b7;
+  font-size: 10px;
+  text-align: center;
+}
+
+.drag-hint span {
+  margin-right: 4px;
+  color: #8390a9;
+  font-size: 13px;
+}
+
+.issue-dialog::backdrop {
+  background: #1e29414d;
+  backdrop-filter: blur(2px);
+}
+
+.issue-dialog {
+  width: min(100%, 470px);
+  margin: auto;
+  padding: 23px;
+  border: 1px solid #e9ebf1;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 20px 60px #1e294133;
+}
+
+.dialog-heading,
+.dialog-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dialog-heading {
+  margin-bottom: 23px;
+}
+
+.dialog-eyebrow {
+  color: #7d89a6;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dialog-heading h2 {
+  margin-top: 5px;
+  color: #24314f;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.dialog-close {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #8b95a9;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.dialog-close:hover {
+  background: #f2f4f8;
+}
+
+.issue-dialog form {
+  display: flex;
+  flex-direction: column;
+}
+
+.issue-dialog label {
+  margin-bottom: 7px;
+  color: #495570;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.issue-dialog label span {
+  color: #9aa3b4;
+  font-weight: 400;
+}
+
+.issue-dialog input,
+.issue-dialog textarea {
+  width: 100%;
+  margin-bottom: 17px;
+  padding: 10px 11px;
+  border: 1px solid #dfe3ec;
+  border-radius: 6px;
+  outline: none;
+  color: #35415a;
+  font-size: 12px;
+  resize: vertical;
+}
+
+.issue-dialog input:focus,
+.issue-dialog textarea:focus {
+  border-color: #7586e6;
+  box-shadow: 0 0 0 3px #5368df1a;
+}
+
+.issue-dialog input::placeholder,
+.issue-dialog textarea::placeholder {
+  color: #adb5c2;
+}
+
+.dialog-footer {
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 3px;
+}
+
+.secondary-button {
+  border: 1px solid #e1e4eb;
+  background: #fff;
+  color: #68748e;
+}
+
+.secondary-button:hover {
+  background: #f6f7fa;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 1100px) {
+  .board-area {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .kanban-board {
+    grid-template-columns: repeat(3, minmax(210px, 1fr));
+    gap: 12px;
+  }
+
+  .kanban-column {
+    padding: 11px;
+  }
+}
+
+@media (max-width: 850px) {
+  .sidebar {
+    width: 62px;
+    flex-basis: 62px;
+    align-items: center;
+    padding: 24px 8px 15px;
+  }
+
+  .sidebar-label,
+  .nav-item:not(.active),
+  .sidebar-footer > div,
+  .sidebar-footer .more-icon {
+    display: none;
+  }
+
+  .nav-item {
+    width: 42px;
+    justify-content: center;
+    padding: 0;
+    font-size: 0;
+  }
+
+  .nav-icon {
+    font-size: 17px;
+  }
+
+  .sidebar-footer {
+    width: 100%;
+    justify-content: center;
+    padding: 12px 0 0;
+  }
+
+  .kanban-board {
+    grid-template-columns: repeat(3, minmax(230px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 580px) {
+  .topbar {
+    height: 58px;
+    padding: 0 17px;
+  }
+
+  .workspace-name,
+  .topbar-divider {
+    display: none;
+  }
+
+  .workspace {
+    min-height: calc(100vh - 58px);
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .board-area {
+    padding: 26px 15px;
+  }
+
+  .board-heading {
+    align-items: flex-start;
+    padding-bottom: 22px;
+  }
+
+  h1 {
+    font-size: 21px;
+  }
+
+  .visibility-pill {
+    padding: 4px 6px;
+    font-size: 9px;
+  }
+
+  .board-description {
+    max-width: 225px;
+    line-height: 1.5;
+  }
+
+  .board-heading > .primary-button {
+    min-width: 38px;
+    padding: 0 10px;
+    font-size: 0;
+  }
+
+  .board-heading > .primary-button span {
+    font-size: 19px;
+  }
+
+  .view-tabs {
+    gap: 14px;
+  }
+
+  .toolbar-actions {
+    gap: 8px;
+  }
+
+  .filter-button {
+    display: none;
+  }
+
+  .kanban-board {
+    grid-template-columns: repeat(3, minmax(255px, 1fr));
+    gap: 10px;
+    margin-right: -15px;
+    padding-right: 15px;
+  }
+
+  .drag-hint {
+    text-align: left;
+  }
 }
